@@ -1811,3 +1811,7 @@ declare module 'xterm' {
     readonly wraparoundMode: boolean
   }
 }
+
+declare module 'sshx-xterm' {
+  export * from 'xterm';
+}

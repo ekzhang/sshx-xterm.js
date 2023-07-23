@@ -82,8 +82,8 @@ class DomMeasureStrategy implements IMeasureStrategy {
     // If values are 0 then the element is likely currently display:none, in which case we should
     // retain the previous value.
     if (geometry.width !== 0 && geometry.height !== 0) {
-      this._result.width = geometry.width;
-      this._result.height = Math.ceil(geometry.height);
+      this._result.width = this._measureElement.clientWidth; // Patch 2
+      this._result.height = Math.ceil(this._measureElement.clientHeight); // Patch 2
     }
 
     return this._result;

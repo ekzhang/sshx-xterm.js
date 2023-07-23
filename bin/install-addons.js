@@ -13,7 +13,7 @@ const PACKAGE_ROOT = path.join(__dirname, '..');
 
 // install addon deps
 const addonsPath = path.join(PACKAGE_ROOT, 'addons');
-if (fs.existsSync(addonsPath)) {
+if (false && fs.existsSync(addonsPath)) {
   console.log('pulling addon dependencies...');
 
   // whether to use yarn or npm

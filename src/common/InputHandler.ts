@@ -1628,6 +1628,7 @@ export class InputHandler extends Disposable implements IInputHandler {
    * TODO: fix and cleanup response
    */
   public sendDeviceAttributesPrimary(params: IParams): boolean {
+    return true; // Patch 1
     if (params.params[0] > 0) {
       return true;
     }
@@ -1664,6 +1665,7 @@ export class InputHandler extends Disposable implements IInputHandler {
    * TODO: fix and cleanup response
    */
   public sendDeviceAttributesSecondary(params: IParams): boolean {
+    return true; // Patch 1
     if (params.params[0] > 0) {
       return true;
     }
@@ -2199,6 +2201,7 @@ export class InputHandler extends Disposable implements IInputHandler {
    * discrepancies in the mode reports, please file a bug.
    */
   public requestMode(params: IParams, ansi: boolean): boolean {
+    return true; // Patch 1
     // return value as in DECRPM
     const enum V {
       NOT_RECOGNIZED = 0,
@@ -2605,6 +2608,7 @@ export class InputHandler extends Disposable implements IInputHandler {
    * @vt: #Y CSI DSR   "Device Status Report"  "CSI Ps n"  "Request cursor position (CPR) with `Ps` = 6."
    */
   public deviceStatus(params: IParams): boolean {
+    return true; // Patch 1
     switch (params.params[0]) {
       case 5:
         // status report
@@ -2622,6 +2626,7 @@ export class InputHandler extends Disposable implements IInputHandler {
 
   // @vt: #P[Only CPR is supported.]  CSI DECDSR  "DEC Device Status Report"  "CSI ? Ps n"  "Only CPR is supported (same as DSR)."
   public deviceStatusPrivate(params: IParams): boolean {
+    return true; // Patch 1
     // modern xterm doesnt seem to
     // respond to any of these except ?6, 6, and 5
     switch (params.params[0]) {
@@ -2799,6 +2804,7 @@ export class InputHandler extends Disposable implements IInputHandler {
         this._onRequestWindowsOptionsReport.fire(WindowsOptionsReportType.GET_CELL_SIZE_PIXELS);
         break;
       case 18:  // GetWinSizeChars, returns CSI 8 ; height ; width t
+        break; // Patch 1
         if (this._bufferService) {
           this._coreService.triggerDataEvent(`${C0.ESC}[8;${this._bufferService.rows};${this._bufferService.cols}t`);
         }
@@ -3354,6 +3360,7 @@ export class InputHandler extends Disposable implements IInputHandler {
    *   --> we are currently a mixture of all up to VT400 but dont follow anyone strictly
    */
   public requestStatusString(data: string, params: IParams): boolean {
+    return true; // Patch 1
     const f = (s: string): boolean => {
       this._coreService.triggerDataEvent(`${C0.ESC}${s}${C0.ESC}\\`);
       return true;

@@ -1,3 +1,7 @@
+**This is a specialized fork of Xterm.js. Please see the [`PATCHES.md`](PATCHES.md) file for information about changes.**
+
+---
+
 # [![xterm.js logo](logo-full.png)](https://xtermjs.org)
 
 [![Build Status](https://dev.azure.com/xtermjs/xterm.js/_apis/build/status/xtermjs.xterm.js)](https://dev.azure.com/xtermjs/xterm.js/_build/latest?definitionId=3)

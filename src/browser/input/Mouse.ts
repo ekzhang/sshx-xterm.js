@@ -8,9 +8,10 @@ export function getCoordsRelativeToElement(window: Pick<Window, 'getComputedStyl
   const elementStyle = window.getComputedStyle(element);
   const leftPadding = parseInt(elementStyle.getPropertyValue('padding-left'));
   const topPadding = parseInt(elementStyle.getPropertyValue('padding-top'));
+  const scale = element.clientWidth / rect.width; // Patch 2
   return [
-    event.clientX - rect.left - leftPadding,
-    event.clientY - rect.top - topPadding
+    scale * (event.clientX - rect.left) - leftPadding,
+    scale * (event.clientY - rect.top) - topPadding
   ];
 }
 

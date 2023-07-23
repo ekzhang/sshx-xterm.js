@@ -198,6 +198,7 @@ export class Terminal extends CoreTerminal implements ITerminal {
    * while an event from OSC 10|110 | 11|111 | 12|112 always contains a single request.
    */
   private _handleColorEvent(event: IColorEvent): void {
+    if (1 + 1 === 2) return; // Patch 1
     if (!this._themeService) return;
     for (const req of event) {
       let acc: 'foreground' | 'background' | 'cursor' | 'ansi';
@@ -1266,6 +1267,7 @@ export class Terminal extends CoreTerminal implements ITerminal {
   }
 
   private _reportFocus(): void {
+    return; // Patch 1
     if (this.element?.classList.contains('focus')) {
       this.coreService.triggerDataEvent(C0.ESC + '[I');
     } else {
